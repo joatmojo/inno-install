@@ -3,4 +3,4 @@
 
 - include: os_lvm.yml
 
-- includ: os_mount.yml
+- include: os_mount.yml
