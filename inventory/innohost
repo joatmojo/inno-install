@@ -1,6 +1,6 @@
 [all:vars]
 
 [nodeall]
-inno1
-inno2
-inno3
+moj-inno1
+moj-inno2
+moj-inno3
