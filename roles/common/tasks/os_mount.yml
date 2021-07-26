@@ -1,7 +1,7 @@
 ---
 - name: Create "{{ data_mount_point }}" directory if it does not exist
   ansible.builtin.file:
-    path: {{ data_mount_point }}
+    path: "{{ data_mount_point }}"
     state: directory
     owner: mysql
     group: mysql
@@ -9,7 +9,7 @@
 
 - name: Create "{{ binlog_mount_point }}" directory if it does not exist
   ansible.builtin.file:
-    path: {{ binlog_mount_point }}
+    path: "{{ binlog_mount_point }}"
     state: directory
     owner: mysql
     group: mysql
