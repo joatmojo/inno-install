@@ -1,5 +1,10 @@
 ---
+- hosts: all
+  any_errors_fatal: true
+  roles:
+  - role: common
+
 - hosts: node1
   any_errors_fatal: true
   roles:
-  - role: backend
+  - role: backend  
