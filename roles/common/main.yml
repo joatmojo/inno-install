@@ -1,4 +1,2 @@
 ---
-- include: facts.yml
-
 - include: os_packages.yml
