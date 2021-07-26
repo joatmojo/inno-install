@@ -2,5 +2,3 @@
 - include: facts.yml
 
 - include: os_packages.yml
-
-- include: python_packages.yml

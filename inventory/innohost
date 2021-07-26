@@ -1,6 +1,20 @@
 [all:vars]
+zfs_backend=true
+zfs_block_device=sdb
+zfs_block_wipe=true
+zfs_pool_wipe=true
+zfs_dataset_wipe=true
 
 [nodeall]
 moj-inno1
 moj-inno2
+moj-inno3
+
+[node1]
+moj-inno1
+
+[node2]
+moj-inno2
+
+[node3]
 moj-inno3
