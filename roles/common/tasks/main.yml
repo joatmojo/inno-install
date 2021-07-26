@@ -2,3 +2,5 @@
 - include: os_vgm.yml
 
 - include: os_lvm.yml
+
+- includ: os_mount.yml
