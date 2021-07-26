@@ -1,2 +1,6 @@
 ---
 - include: os_packages.yml
+
+- include: os_vgm.yml
+
+- include: os_lvm.yml
