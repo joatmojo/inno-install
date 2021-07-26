@@ -1,0 +1,30 @@
+---
+- name: Create "{{ data_mount_point }}" directory if it does not exist
+  ansible.builtin.file:
+    path: {{ data_mount_point }}
+    state: directory
+    owner: mysql
+    group: mysql
+    mode: '0755'
+
+- name: Create "{{ binlog_mount_point }}" directory if it does not exist
+  ansible.builtin.file:
+    path: {{ binlog_mount_point }}
+    state: directory
+    owner: mysql
+    group: mysql
+    mode: '0755'
+
+- name: Mount {{ fs_type }} "/dev/mapper/{{ vg_data_name }}-{{ lv_data_name }}" into "{{ data_mount_point }}" 
+  mount:
+    path: "{{ data_mount_point }}"
+    src: "/dev/mapper/{{ vg_data_name }}-{{ lv_data_name }}"
+    fstype: "{{ fs_type }}"
+    state: mounted
+
+- name: Mount {{ fs_type }} "/dev/mapper/{{ vg_binlog_name }}-{{ lv_binlog_name }}" into "{{ binlog_mount_point }}" 
+  mount:
+    path: "{{ binlog_mount_point }}"
+    src: "/dev/mapper/{{ vg_binlog_name }}-{{ lv_binlog_name }}"
+    fstype: "{{ fs_type }}"
+    state: mounted      

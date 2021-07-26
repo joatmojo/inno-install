@@ -1,12 +1,22 @@
 ---
-- name: Create a logical volume for mysql data directory
+- name: Create a "{{ lv_data_size }}" logical volume for mysql data directory
   lvol:
     vg: "{{ vg_data_name }}"
     lv: "{{ lv_data_name }}"
     size: "{{ lv_data_size }}"
 
-- name: Create a logical volume for mysql data directory
+- name: Create a "{{ lv_binlog_name }}" logical volume for mysql binlog directory
   lvol:
     vg: "{{ vg_binlog_name }}"
     lv: "{{ lv_binlog_name }}"
     size: "{{ lv_binlog_size }}" 
+
+- name: Create a "{{ fs_type }}" filesystem for data on lvm "/dev/mapper/{{ vg_data_name }}-{{ lv_data_name }}".
+  filesystem:
+     fstype: "{{ fs_type }}"
+     dev: "/dev/mapper/{{ vg_data_name }}-{{ lv_data_name }}"
+
+- name: Create a "{{ fs_type }}" filesystem for binlog on lvm "/dev/mapper/{{ vg_binlog_name }}-{{ lv_binlog_name }}".
+  filesystem:
+     fstype: "{{ fs_type }}"
+     dev: "/dev/mapper/{{ vg_binlog_name }}-{{ lv_binlog_name }}"

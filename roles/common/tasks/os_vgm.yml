@@ -1,11 +1,11 @@
 ---
-- name: Create a volume group vg_data on top of /dev/sdb with default physical extent size = 4KiB
+- name: Create a "{{ vg_data_name }}" volume group vg_data on top of "{{ vg_data_loc }}" with default physical extent size = 4KiB
   lvg:
     vg: "{{ vg_data_name }}"
     pvs: "{{ vg_data_loc }}"
     pesize: 4K
 
-- name: Create a volume group vg_binlog on top of /dev/sdc with default physical extent size = 4KiB
+- name: Create a "{{ vg_binlog_name }}" volume group vg_binlog on top of "{{ vg_binlog_loc }}" with default physical extent size = 4KiB
   lvg:
     vg: "{{ vg_binlog_name }}"
     pvs: "{{ vg_binlog_loc }}"
