@@ -1,5 +1,5 @@
 ---
-- name: Create a "{{ lv_data_size }}" logical volume for mysql data directory
+- name: Create a "{{ lv_data_name }}" logical volume for mysql data directory
   lvol:
     vg: "{{ vg_data_name }}"
     lv: "{{ lv_data_name }}"
