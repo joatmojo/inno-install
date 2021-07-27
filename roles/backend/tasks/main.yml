@@ -4,3 +4,5 @@
 - include: os_lvm.yml
 
 - include: os_mount.yml
+
+- include: my_copy.yml

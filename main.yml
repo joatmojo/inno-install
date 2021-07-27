@@ -4,11 +4,6 @@
   roles:
   - role: common
 
-- hosts: nodebast
-  any_errors_fatal: true
-  roles:
-  - role: bastion
-
 - hosts: node1
   any_errors_fatal: true
   roles:

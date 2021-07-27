@@ -17,3 +17,7 @@ binlog_mount_point: '/binlog'
 
 # File system type
 fs_type: 'ext4'
+
+# Copy file
+master_file: 'p33129917_580_Linux-x86-64.zip'
+master_path: '/tmp'
