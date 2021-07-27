@@ -1,9 +1,13 @@
 ---
-- name: Copy MySQL '{{ master_file }}' master file
+- name: Copy MySQL master file
   hosts: node1
-  - copy:
-    src: "{{ master_path }}/{{ master_file }}"
-    dest: /tmp/{{ master_file }}
-    owner: root
-    group: root
-    mode: 0764
+  become: true
+
+  tasks: 
+    - name: copy "{{ master_file }}"
+      copy: 
+        src: "{{ master_path }}/{{ master_file }}"
+        dest: /tmp/{{ master_file }}
+        owner: root
+        group: root
+        mode: 0764
