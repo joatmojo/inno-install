@@ -15,12 +15,37 @@
     group: root
     mode: 0764
 
+- name: Create a /usr/local directory if it does not exist
+  ansible.builtin.file:
+    path: /usr/local
+    state: directory
+    mode: '0755'    
+
 - name: Extract MySQL master file
   ansible.builtin.unarchive:
     src: /tmp/{{ master_file }}
-    dest: /tmp
+    dest: /usr/local
+
+- name: Change file ownership, group and permissions for MySQL master folder
+  ansible.builtin.file:
+    path: /usr/local/{{ master_folder }}
+    owner: mysql
+    group: mysql
+    mode: '0755'    
+
+- name: Create a symbolic link for MySQL master folder
+  ansible.builtin.file:
+    src: /usr/local/{{ master_folder }}
+    dest: /usr/local/mysql
+    owner: mysql
+    group: mysql
+    state: link    
 
 - name: Extract MySQL Shell master file
   ansible.builtin.unarchive:
     src: /tmp/{{ master_shell_file }}
     dest: /tmp
+
+- name: Install a '{{ master_shell_name }}' package
+  apt:
+    deb: /tmp/{{ master_shell_name }}

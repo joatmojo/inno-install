@@ -23,4 +23,4 @@
     path: "{{ binlog_mount_point }}"
     src: "/dev/mapper/{{ vg_binlog_name }}-{{ lv_binlog_name }}"
     fstype: "{{ fs_type }}"
-    state: mounted      
+    state: mounted
