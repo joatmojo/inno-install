@@ -1,8 +1,12 @@
 ---
+# This step for creating volume group for data and binlog dir
 - include: os_vgm.yml
 
+# This step for creating logical volume for data and binlog dir
 - include: os_lvm.yml
 
+# This step for mounting LVM to data directory
 - include: os_mount.yml
 
-- include: my_copy.yml
+# This step for copy master file to all backend database1  
+- include: my_extract.yml

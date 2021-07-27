@@ -1,0 +1,26 @@
+---
+- name: Copy MySQL master file
+  copy: 
+    src: "{{ master_path }}/{{ master_file }}"
+    dest: /tmp/{{ master_file }}
+    owner: root
+    group: root
+    mode: 0764
+
+- name: Copy MySQL Shell master file
+  copy: 
+    src: "{{ master_shell_path }}/{{ master_shell_file }}"
+    dest: /tmp/{{ master_shell_file }}
+    owner: root
+    group: root
+    mode: 0764
+
+- name: Extract MySQL master file
+  ansible.builtin.unarchive:
+    src: /tmp/{{ master_file }}
+    dest: /tmp
+
+- name: Extract MySQL Shell master file
+  ansible.builtin.unarchive:
+    src: /tmp/{{ master_shell_file }}
+    dest: /tmp

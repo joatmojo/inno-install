@@ -9,4 +9,4 @@
   lvg:
     vg: "{{ vg_binlog_name }}"
     pvs: "{{ vg_binlog_loc }}"
-    pesize: 4K    
+    pesize: 4K
