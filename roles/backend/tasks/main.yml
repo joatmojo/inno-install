@@ -8,5 +8,8 @@
 # This step for mounting LVM to data directory
 - include: os_mount.yml
 
+# This step for create mysql user and group
+- include: os_user.yml
+
 # This step for copy master file to all backend database1  
 - include: my_extract.yml
