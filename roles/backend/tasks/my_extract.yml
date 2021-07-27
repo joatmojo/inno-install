@@ -21,7 +21,7 @@
     state: directory
     mode: '0755'    
 
-- name: Extract MySQL master file
+- name: Extract {{ master_file }} master file to /usr/local
   ansible.builtin.unarchive:
     src: /tmp/{{ master_file }}
     dest: /usr/local
@@ -34,7 +34,7 @@
     group: mysql
     mode: '0755'
 
-- name: Create a symbolic link for MySQL master folder
+- name: Create a symbolic link for {{ master_folder }} master folder to /usr/local/mysql
   ansible.builtin.file:
     src: /usr/local/{{ master_folder }}
     dest: /usr/local/mysql
@@ -42,7 +42,7 @@
     group: mysql
     state: link    
 
-- name: Extract MySQL Shell master file
+- name: Extract {{ master_shell_file }} master file
   ansible.builtin.unarchive:
     src: /tmp/{{ master_shell_file }}
     dest: /tmp
@@ -52,12 +52,13 @@
   apt:
     deb: /tmp/{{ master_shell_name }}
 
-- name: Copy MySQL to init for register
+- name: Copy mysql.server to init for register
   copy: 
     src: /usr/local/mysql/support-files/mysql.server
     dest: /etc/init.d/
     owner: root
     group: root
+    mode: '0755'
     remote_src: yes
 
 - name: Create a symbolic link for mysql.server to init.d
