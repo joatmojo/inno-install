@@ -2,6 +2,6 @@
 - name: Download MySQL "{{ download_file }}" master file
   get_url:
     url: "{{ download_url }}"
-    dest: /tmp/"{{ download_file }}"
+    dest: /tmp/{{ download_file }}
     username: "{{ download_user }}"
     password: "{{ download_pass }}"
