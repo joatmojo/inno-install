@@ -49,3 +49,34 @@
 - name: Install a '{{ master_shell_name }}' package
   apt:
     deb: /tmp/{{ master_shell_name }}
+
+- name: Copy MySQL to init for register
+  copy: 
+    src: /usr/local/mysql/support-files/mysql.server
+    dest: /etc/init.d/
+    owner: root
+    group: root
+
+- name: Create a symbolic link for mysql.server to init.d
+  ansible.builtin.file:
+    src: /etc/init.d/mysql.server
+    dest: /etc/rc3.d/S99mysql.server
+    owner: root
+    group: root
+    state: link
+
+- name: Create /data/mysql directory if it does not exist
+  ansible.builtin.file:
+    path: /data/mysql
+    state: directory
+    owner: mysql
+    group: mysql
+    mode: '0755'
+
+- name: Create /binlog/mysql directory if it does not exist
+  ansible.builtin.file:
+    path: /binlog/mysql
+    state: directory
+    owner: mysql
+    group: mysql
+    mode: '0755'    
