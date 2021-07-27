@@ -1,0 +1,19 @@
+---
+# Value for volume Group
+vg_data_name: 'vg_data'
+vg_data_loc: '/dev/sdb'
+vg_binlog_name: 'vg_binlog'
+vg_binlog_loc: '/dev/sdc'
+
+# Value for logical volume
+lv_data_name: 'data'
+lv_data_size: '9G'
+lv_binlog_name: 'binlog'
+lv_binlog_size: '9G'
+
+# Value for pointing
+data_mount_point: '/data'
+binlog_mount_point: '/binlog'
+
+# File system type
+fs_type: 'ext4'
