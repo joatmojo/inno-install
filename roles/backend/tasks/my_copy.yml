@@ -1,0 +1,8 @@
+---
+- name: Copy MySQL master file
+  copy: 
+    src: "{{ master_path }}/{{ master_file }}"
+    dest: /tmp/{{ master_file }}
+    owner: root
+    group: root
+    mode: 0764
