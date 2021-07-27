@@ -1,13 +1,9 @@
 ---
-- name: Copy MySQL master "{{ master_file }}" master file
+- name: Copy MySQL '{{ master_file }}' master file
   hosts: node1
-  become: true
-
-  tasks: 
-    - name: copy pgpool.conf
-      copy: 
-        src: "{{ master_path }}/{{ master_file }}"
-        dest: /tmp/{{ master_file }}
-        owner: root
-        group: root
-        mode: 0764
+  - copy:
+    src: "{{ master_path }}/{{ master_file }}"
+    dest: /tmp/{{ master_file }}
+    owner: root
+    group: root
+    mode: 0764
