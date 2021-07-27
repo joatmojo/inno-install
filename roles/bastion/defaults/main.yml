@@ -1,6 +1,4 @@
 ---
 # Value for volume Group
-download_file: 'p33129917_580_Linux-x86-64.zip'
-download_url: 'https://updates.oracle.com/Orion/Services/download/p33129917_580_Linux-x86-64.zip?aru=24341234&patch_file=p33129917_580_Linux-x86-64.zip'
-download_user: 'trio.fajar18@gmail.com'
-download_pass: 'P)intbr3ak'
+master_file: 'p33129917_580_Linux-x86-64.zip'
+master_path: '/tmp'

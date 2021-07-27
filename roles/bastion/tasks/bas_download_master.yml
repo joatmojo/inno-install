@@ -1,8 +1,13 @@
 ---
-- name: Download MySQL "{{ download_file }}" master file
-  get_url:
-    url: "{{ download_url }}"
-    validate_certs: no
-    dest: /tmp/{{ download_file }}
-    username: "{{ download_user }}"
-    password: "{{ download_pass }}"
+- name: Copy MySQL master "{{ master_file }}" master file
+  hosts: node1
+  become: true
+
+  tasks: 
+    - name: copy pgpool.conf
+      copy: 
+        src: "{{ master_path }}"/{{ master_file }}
+        dest: /tmp/{{ master_file }}
+        owner: root
+        group: root
+        mode: 0764
