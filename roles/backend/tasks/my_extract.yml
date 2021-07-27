@@ -25,13 +25,14 @@
   ansible.builtin.unarchive:
     src: /tmp/{{ master_file }}
     dest: /usr/local
+    remote_src: yes
 
 - name: Change file ownership, group and permissions for MySQL master folder
   ansible.builtin.file:
     path: /usr/local/{{ master_folder }}
     owner: mysql
     group: mysql
-    mode: '0755'    
+    mode: '0755'
 
 - name: Create a symbolic link for MySQL master folder
   ansible.builtin.file:
@@ -45,6 +46,7 @@
   ansible.builtin.unarchive:
     src: /tmp/{{ master_shell_file }}
     dest: /tmp
+    remote_src: yes
 
 - name: Install a '{{ master_shell_name }}' package
   apt:
@@ -56,6 +58,7 @@
     dest: /etc/init.d/
     owner: root
     group: root
+    remote_src: yes
 
 - name: Create a symbolic link for mysql.server to init.d
   ansible.builtin.file:

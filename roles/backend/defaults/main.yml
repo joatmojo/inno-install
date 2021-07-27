@@ -20,14 +20,14 @@ fs_type: 'ext4'
 
 # name for mysql master file
 master_file: 'mysql-commercial-8.0.26-linux-glibc2.12-x86_64.tar.xz'
-master_path: '/tmp'
+master_path: '/tmp/mysql'
 
 # name for mysql master folder
 master_folder: 'mysql-commercial-8.0.26-linux-glibc2.12-x86_64'
 
 # name for shell master file
 master_shell_file: 'p33133361_800_Linux-x86-64.zip'
-master_shell_path: '/tmp'
+master_shell_path: '/tmp/mysql'
 
 # name for shell deb file
 master_shell_name: 'mysql-shell-commercial_8.0.26+commercial-1ubuntu20.04_amd64.deb'
