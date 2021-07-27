@@ -2,6 +2,7 @@
 - name: Download MySQL "{{ download_file }}" master file
   get_url:
     url: "{{ download_url }}"
+    validate_certs: no
     dest: /tmp/{{ download_file }}
     username: "{{ download_user }}"
     password: "{{ download_pass }}"
