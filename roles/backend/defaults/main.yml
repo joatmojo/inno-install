@@ -18,6 +18,10 @@ binlog_mount_point: '/binlog'
 # File system type
 fs_type: 'ext4'
 
-# Copy file
+# name for mysql master file
 master_file: 'p33129917_580_Linux-x86-64.zip'
 master_path: '/tmp'
+
+# name for shell master file
+master_shell_file: 'p33133361_800_Linux-x86-64.zip'
+master_shell_path: '/tmp'
