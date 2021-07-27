@@ -1,4 +1,4 @@
 ---
 # Value for volume Group
 master_file: 'p33129917_580_Linux-x86-64.zip'
-master_path: '/tmp/'
+master_path: '/tmp'
