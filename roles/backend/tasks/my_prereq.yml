@@ -1,0 +1,5 @@
+---
+- name: Install libaio
+  apt:
+    name: libaio1
+    state: present

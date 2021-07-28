@@ -11,5 +11,8 @@
 # This step for create mysql user and group
 - include: os_user.yml
 
+# This step for install prerequisite of mysql installation
+- include: my_prereq.yml
+
 # This step for copy master file to all backend database1  
 - include: my_extract.yml
