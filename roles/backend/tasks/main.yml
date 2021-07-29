@@ -19,3 +19,6 @@
 
 # This step for Add mysql bin to root profile
 - include: my_env.yml
+
+# This step for init mysql 
+- include: my_init.yml
