@@ -8,7 +8,7 @@
     mode: 0644
 
 - name: Initiate Galera Database
-  shell: mysqld --defaults-file=/etc/my.cnf --user=mysql --initialize-insecure
+  shell: /usr/local/mysql/bin/mysqld --defaults-file=/etc/my.cnf --user=mysql --initialize-insecure
   args:
     warn: false
 
