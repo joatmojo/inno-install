@@ -1,9 +1,8 @@
 ---
 - name: Add mysql bin to root profile
   ansible.builtin.template:
-    src: root_profile.sql.j2
+    src: root_profile.j2
     dest: /root/.profile
     owner: root
     group: root
     mode: 0644
-    become: yes
