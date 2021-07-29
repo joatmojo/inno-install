@@ -8,8 +8,9 @@
     mode: 0644
 
 - name: Initiate Galera Database
-  ansible.builtin.shell: 
-    shell: mysqld --defaults-file=/etc/my.cnf --user=mysql --initialize-insecure
+  shell: mysqld --defaults-file=/etc/my.cnf --user=mysql --initialize-insecure
+  args:
+    warn: false
 
 - name: Start service mysql
   ansible.builtin.service:
