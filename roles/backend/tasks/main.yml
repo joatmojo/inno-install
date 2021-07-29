@@ -18,4 +18,4 @@
 - include: my_extract.yml
 
 # This step for Add mysql bin to root profile
-- include: my_env_varible.yml
+- include: my_env.yml
