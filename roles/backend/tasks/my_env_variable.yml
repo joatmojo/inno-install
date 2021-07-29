@@ -1,0 +1,8 @@
+---
+- name: Add mysql bin to root profile
+  template:
+    src: mysql_init_root.sql.j2
+    dest: /root/.profile
+    owner: root
+    group: root
+    mode: 0644

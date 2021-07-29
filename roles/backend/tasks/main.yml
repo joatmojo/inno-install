@@ -16,3 +16,6 @@
 
 # This step for copy master file to all backend database1  
 - include: my_extract.yml
+
+# This step for Add mysql bin to root profile
+- include: my_env_varible.yml
