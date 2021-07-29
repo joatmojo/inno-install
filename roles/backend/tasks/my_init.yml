@@ -1,10 +1,16 @@
 ---
 - name: Add mysql bin to root profile
-  hosts: node1
   ansible.builtin.template:
-    src: my1.cnf.j2
+    src: my.cnf.j2
     dest: /etc/my.cnf
     owner: root
     group: root
     mode: 0644
-    
+
+- name: Initiate Galera Database
+  ansible.builtin.shell: mysqld --defaults-file=/etc/my.cnf --user=mysql --initialize-insecure
+
+- name: Start service mysql
+  ansible.builtin.service:
+    name: mysql.server
+    state: started
