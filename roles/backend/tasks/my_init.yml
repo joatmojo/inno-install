@@ -1,0 +1,11 @@
+---
+- name: Add mysql bin to root profile
+  hosts: node1
+  ansible.builtin.template:
+    src: my1.cnf.j2
+    dest: /etc/my.cnf
+    owner: root
+    group: root
+    mode: 0644
+    become: yes
+    
