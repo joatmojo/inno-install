@@ -13,3 +13,8 @@
   apt:
     name: libtinfo5
     state: present 
+
+- name: Install pyMySQL
+  pip:
+    name: pymysql
+    state: present
