@@ -13,8 +13,3 @@
   apt:
     name: libtinfo5
     state: present 
-
-- name: Adds Python MySQL support on Debian/Ubuntu
-  apt: 
-    name: python-mysqldb 
-    state: present
