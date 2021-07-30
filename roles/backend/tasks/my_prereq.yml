@@ -1,5 +1,10 @@
 ---
-- name: Install libaio
+- name: Install libaio prereq
   apt:
     name: libaio1
     state: present
+
+- name: Install numactl prereq
+  apt:
+    name: numactl
+    state: present 

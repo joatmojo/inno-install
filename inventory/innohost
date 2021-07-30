@@ -5,15 +5,15 @@ moj-bastion
 
 [nodeall]
 moj-bastion
-moj-inno1
-moj-inno2
-moj-inno3
+moj-inno1 conf_node=inno1
+moj-inno2 conf_node=inno2
+moj-inno3 conf_node=inno3
 
 [node1]
-moj-inno1
+moj-inno1 conf_node=inno1
 
 [node2]
-moj-inno2
+moj-inno2 conf_node=inno2
 
 [node3]
-moj-inno3
+moj-inno3 conf_node=inno3

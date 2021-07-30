@@ -1,3 +1,4 @@
+{% if conf_node == 'inno1' %}
 [mysqld]
 port=3306
 mysqlx-port=33060
@@ -13,6 +14,7 @@ enforce-gtid-consistency
 character-set-server=utf8mb4
 master_info_repository=TABLE
 relay_log_info_repository=TABLE
+server-id=101
 binlog_checksum=NONE
 log-slave-updates=true
 transaction-write-set-extraction=XXHASH64
@@ -27,3 +29,66 @@ innodb_log_file_size = 256M
 max_allowed_packet=1G
 
 binlog_expire_logs_seconds = 86400
+{% elif conf_node == 'inno2' %}
+[mysqld]
+port=3306
+mysqlx-port=33060
+
+datadir=/data/mysql
+socket=/data/mysql/mysql.sock
+log-bin=/binlog/mysql/arch
+log-error=/data/mysql/mysqld.log
+pid-file=/data/mysql/mysqld.pid
+
+gtid-mode=ON
+enforce-gtid-consistency
+character-set-server=utf8mb4
+master_info_repository=TABLE
+relay_log_info_repository=TABLE
+server-id=102
+binlog_checksum=NONE
+log-slave-updates=true
+transaction-write-set-extraction=XXHASH64
+
+
+#Initial Tuning(https://www.percona.com/blog/2016/10/12/mysql-5-7-performance-tuning-immediately-after-installation/)
+max_connections = 1500
+innodb_buffer_pool_size = 2G # (adjust value here, 50%-70% of total RAM)
+innodb_log_file_size = 256M
+#innodb_flush_log_at_trx_commit = 1 # may change to 2 or 0
+#innodb_flush_method = O_DIRECT
+max_allowed_packet=1G
+
+binlog_expire_logs_seconds = 86400
+{% elif conf_node == 'inno3' %}
+[mysqld]
+port=3306
+mysqlx-port=33060
+
+datadir=/data/mysql
+socket=/data/mysql/mysql.sock
+log-bin=/binlog/mysql/arch
+log-error=/data/mysql/mysqld.log
+pid-file=/data/mysql/mysqld.pid
+
+gtid-mode=ON
+enforce-gtid-consistency
+character-set-server=utf8mb4
+master_info_repository=TABLE
+relay_log_info_repository=TABLE
+server-id=103
+binlog_checksum=NONE
+log-slave-updates=true
+transaction-write-set-extraction=XXHASH64
+
+
+#Initial Tuning(https://www.percona.com/blog/2016/10/12/mysql-5-7-performance-tuning-immediately-after-installation/)
+max_connections = 1500
+innodb_buffer_pool_size = 2G # (adjust value here, 50%-70% of total RAM)
+innodb_log_file_size = 256M
+#innodb_flush_log_at_trx_commit = 1 # may change to 2 or 0
+#innodb_flush_method = O_DIRECT
+max_allowed_packet=1G
+
+binlog_expire_logs_seconds = 86400
+{% endif %}
