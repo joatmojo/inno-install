@@ -31,3 +31,9 @@ master_shell_path: '/tmp/mysql'
 
 # name for shell deb file
 master_shell_name: 'mysql-shell-commercial_8.0.26+commercial-1ubuntu20.04_amd64.deb'
+
+# ip host for icuser
+icuser_host: '%'
+
+# password for icuser
+icuser_pass: 'Superadmin_202'

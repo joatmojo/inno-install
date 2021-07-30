@@ -26,3 +26,6 @@
 # Secure installation 
 - include_role:
     name: my_secure
+
+# Create icuser user
+- include: my_create_user.yml    
