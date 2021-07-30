@@ -14,6 +14,11 @@
     name: libtinfo5
     state: present 
 
+- name: Install pip3 prereq
+  apt:
+    name: python3-pip
+    state: present  
+
 - name: Install pyMySQL
   pip:
     name: pymysql
