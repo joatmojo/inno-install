@@ -1,4 +1,9 @@
 ---
+- name: Check if database already created and started
+  stat:
+    path: /data/mysql/mysql
+  register: mysql_exists
+
 - name: Add mysql bin to root profile
   ansible.builtin.template:
     src: my.cnf.j2
@@ -6,13 +11,16 @@
     owner: root
     group: root
     mode: 0644
+  when: not mysql_exists.stat.exists
 
 - name: Initiate Galera Database
   shell: /usr/local/mysql/bin/mysqld --defaults-file=/etc/my.cnf --user=mysql --initialize-insecure
   args:
     warn: false
+  when: not mysql_exists.stat.exists    
 
 - name: Start service mysql
   ansible.builtin.service:
     name: mysql.server
     state: started
+  when: not mysql_exists.stat.exists    
