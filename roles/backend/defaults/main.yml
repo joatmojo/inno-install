@@ -37,3 +37,6 @@ icuser_host: '%'
 
 # password for icuser
 icuser_pass: 'Superadmin_202'
+
+# password for root
+root_pass: 'Superadmin_102'
