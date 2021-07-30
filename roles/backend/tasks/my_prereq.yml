@@ -18,10 +18,3 @@
   apt: 
     name: python-mysqldb 
     state: present
-    when: ansible_os_family == 'Debian'
-
-- name: Adds Python MySQL support on RedHat/CentOS
-  yum: 
-    name: MySQL-python 
-    state: present
-    when: ansible_os_family == 'RedHat'    
