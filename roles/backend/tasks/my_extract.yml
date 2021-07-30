@@ -21,11 +21,17 @@
     state: directory
     mode: '0755'    
 
+- name: Check if master file already extract
+  stat:
+    path: /usr/local/{{ master_folder }}
+  register: mysql_master_extracted
+
 - name: Extract {{ master_file }} master file to /usr/local
   ansible.builtin.unarchive:
     src: /tmp/{{ master_file }}
     dest: /usr/local
     remote_src: yes
+  when: not mysql_master_extracted.stat.exists  
 
 - name: Change file ownership, group and permissions for MySQL master folder
   ansible.builtin.file:
