@@ -24,4 +24,5 @@
 - include: my_init.yml
 
 # Secure installation 
-- include: my_secure.yml
+- include_role:
+    name: my_secure
