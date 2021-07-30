@@ -8,3 +8,8 @@
   apt:
     name: numactl
     state: present 
+
+- name: Install libtinfo5 prereq
+  apt:
+    name: libtinfo5
+    state: present 
