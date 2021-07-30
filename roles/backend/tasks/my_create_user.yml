@@ -1,6 +1,6 @@
 ---
 - name: Add ic_user for administrating Cluster
-  community.mysql.mysql_user:
+  mysql_user:
     name: icuser
     host: "{{ icuser_host }}"
     password: "{{ icuser_pass }}"
