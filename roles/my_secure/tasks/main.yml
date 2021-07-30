@@ -1,13 +1,6 @@
 ---
 # tasks file for ansible-role-mysql_secure_installation
 
-- name: add mysql python support for RedHat family
-  yum: name=MySQL-python state=installed
-  when: ansible_os_family == 'RedHat'
-- name: add mysql python support for Debian family
-  apt: update_cache=yes name=python-mysqldb state=installed
-  when: ansible_os_family == 'Debian'
-  
 - name: 1. set mysql root pass
   mysql_user:
       login_user: root
