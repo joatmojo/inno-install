@@ -9,4 +9,4 @@ msi_mysql_root_pass: 'Superadmin_101'
 # if you don't want to change your old password then you can assign your old
 # password to it too.
 # oh and don't forget, always use ansible vault for sensitive data :)
-msi_new_mysql_root_pass: 'Superadmin_101'
+msi_new_mysql_root_pass: 'Superadmin_102'
