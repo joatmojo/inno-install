@@ -1,8 +1,13 @@
 ---
+- name: Check if database already created
+  stat:
+    path: /data/mysql/mysql
+  register: mysql_exists
+
 - name: Check if database already created and started
   stat:
     path: /data/mysql/mysql.sock
-  register: mysql_exists
+  register: mysql_sock_exists  
 
 - name: Add mysql bin to root profile
   template:
@@ -28,4 +33,4 @@
   service:
     name: mysql.server
     state: started
-  when: not mysql_exists.stat.exists    
+  when: not mysql_sock_exists.stat.exists    
