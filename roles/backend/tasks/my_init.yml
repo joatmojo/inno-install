@@ -1,11 +1,11 @@
 ---
 - name: Check if database already created and started
   stat:
-    path: /data/mysql/mysql
+    path: /data/mysql/mysql.sock
   register: mysql_exists
 
 - name: Add mysql bin to root profile
-  ansible.builtin.template:
+  template:
     src: my.cnf.j2
     dest: /etc/my.cnf
     owner: root
@@ -19,8 +19,13 @@
     warn: false
   when: not mysql_exists.stat.exists    
 
+- name: Enable service mysql
+  service:
+    name: mysql.server
+    enabled: yes
+
 - name: Start service mysql
-  ansible.builtin.service:
+  service:
     name: mysql.server
     state: started
   when: not mysql_exists.stat.exists    
