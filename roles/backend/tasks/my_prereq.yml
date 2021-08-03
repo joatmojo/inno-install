@@ -9,9 +9,9 @@
     name: numactl
     state: present 
 
-- name: Install libtinfo5 prereq
+- name: Install libtinfo6 prereq
   apt:
-    name: libtinfo5
+    name: libtinfo6
     state: present 
 
 - name: Install pip3 prereq
