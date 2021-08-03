@@ -14,6 +14,14 @@
     name: libtinfo6
     state: present 
 
+- name: Symlink for libtinfo6 to libtinfo5
+  file:
+    src: /usr/lib/x86_64-linux-gnu/libtinfo.so.6
+    dest: /usr/lib/x86_64-linux-gnu/libtinfo.so.5
+    owner: root
+    group: root
+    state: link    
+
 - name: Install pip3 prereq
   apt:
     name: python3-pip
