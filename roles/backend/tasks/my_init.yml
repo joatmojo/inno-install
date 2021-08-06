@@ -9,9 +9,9 @@
     path: /data/mysql/mysql.sock
   register: mysql_sock_exists  
 
-- name: Add mysql bin to root profile
+- name: Add my_init.cnf
   template:
-    src: my.cnf.j2
+    src: my_init.cnf.j2
     dest: /etc/my.cnf
     owner: root
     group: root
@@ -22,7 +22,22 @@
   shell: /usr/local/mysql/bin/mysqld --defaults-file=/etc/my.cnf --user=mysql --initialize-insecure
   args:
     warn: false
-  when: not mysql_exists.stat.exists    
+  when: not mysql_exists.stat.exists
+
+- name: Remove file my.cnf init(delete file)
+  file:
+    path: /etc/my.cnf
+    state: absent
+  when: not mysql_exists.stat.exists  
+
+- name: Add my.cnf with plugin 
+  template:
+    src: my.cnf.j2
+    dest: /etc/my.cnf
+    owner: root
+    group: root
+    mode: 0644
+  when: not mysql_exists.stat.exists  
 
 - name: Enable service mysql
   service:
@@ -33,4 +48,4 @@
   service:
     name: mysql.server
     state: started
-  when: not mysql_sock_exists.stat.exists    
+  when: not mysql_sock_exists.stat.exists
