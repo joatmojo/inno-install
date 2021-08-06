@@ -1,7 +1,4 @@
 ---
-# allowed ip group segments
-allow_host_inno: '"10.10.10.0/24"'
-
 # innodb hosts cluster
 inno_hosts: '"moj-inno1","moj-inno2","moj-inno3"'
 

@@ -42,4 +42,4 @@ icuser_pass: 'Superadmin_202'
 root_pass: 'Superadmin_102'
 
 # allowed ip group segments
-allow_host_inno: '"10.10.10.0/24"'
+allow_host_inno: '10.10.10.0/24'
