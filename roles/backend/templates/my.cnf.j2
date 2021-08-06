@@ -44,6 +44,9 @@ log-bin=/binlog/mysql/arch
 log-error=/data/mysql/mysqld.log
 pid-file=/data/mysql/mysqld.pid
 
+#load libraries
+plugin_load_add=group_replication.so
+
 gtid-mode=ON
 enforce-gtid-consistency
 character-set-server=utf8mb4
@@ -53,6 +56,7 @@ server-id=102
 binlog_checksum=NONE
 log-slave-updates=true
 transaction-write-set-extraction=XXHASH64
+group_replication_ip_allowlist="{{ allow_host_inno }}"
 
 
 #Initial Tuning(https://www.percona.com/blog/2016/10/12/mysql-5-7-performance-tuning-immediately-after-installation/)
@@ -75,6 +79,9 @@ log-bin=/binlog/mysql/arch
 log-error=/data/mysql/mysqld.log
 pid-file=/data/mysql/mysqld.pid
 
+#load libraries
+plugin_load_add=group_replication.so
+
 gtid-mode=ON
 enforce-gtid-consistency
 character-set-server=utf8mb4
@@ -84,6 +91,7 @@ server-id=103
 binlog_checksum=NONE
 log-slave-updates=true
 transaction-write-set-extraction=XXHASH64
+group_replication_ip_allowlist="{{ allow_host_inno }}"
 
 
 #Initial Tuning(https://www.percona.com/blog/2016/10/12/mysql-5-7-performance-tuning-immediately-after-installation/)
