@@ -3,4 +3,4 @@
 inno_hosts: '"moj-inno1","moj-inno2","moj-inno3"'
 
 # password for inno_cluster user
-inno_cluster: 'Innoclusetr_2020'
+inno_cluster: 'Superadmin_202'
