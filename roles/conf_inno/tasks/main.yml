@@ -1,3 +1,3 @@
 ---
 # This step for config innodb cluster
-- include: os_vgm.yml
+- include: inno_config.yml
