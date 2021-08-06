@@ -1,0 +1,14 @@
+---
+- name: Add configInno.js to root directory
+  template:
+    src: configInno.js.j2
+    dest: /root/configInno.js
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Execute config innodb cluster
+  command: mysqlsh -f /root/configInno.js
+  register: configInno
+
+- debug: var=configInno.stdout_lines

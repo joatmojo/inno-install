@@ -8,3 +8,8 @@
   any_errors_fatal: true
   roles:
   - role: backend  
+
+- hosts: node1
+  any_errors_fatal: true
+  roles:
+  - role: conf_inno
